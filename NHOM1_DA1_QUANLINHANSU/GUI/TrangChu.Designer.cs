@@ -78,7 +78,7 @@
             panel2.Controls.Add(button_QLNhanVien);
             panel2.Location = new Point(1, 42);
             panel2.Name = "panel2";
-            panel2.Size = new Size(287, 596);
+            panel2.Size = new Size(287, 577);
             panel2.TabIndex = 1;
             // 
             // button_DangXuat
@@ -223,6 +223,7 @@
             // 
             // panel_TrangChu
             // 
+            panel_TrangChu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel_TrangChu.Location = new Point(292, 42);
             panel_TrangChu.Name = "panel_TrangChu";
             panel_TrangChu.Size = new Size(992, 587);

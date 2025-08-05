@@ -30,12 +30,12 @@ namespace NHOM1_DA1_QUANLINHANSU.GUI
 
         private void TrangChu_Load(object sender, EventArgs e)
         {
-            UC_TrangChu defaultUC = new UC_TrangChu();
-            if (!panel_TrangChu.Controls.Contains(defaultUC))
+            UC_TrangChu uC_TrangChu = new UC_TrangChu();
+            if (!panel_TrangChu.Controls.Contains(uC_TrangChu))
             {
-                panel_TrangChu.Controls.Add(defaultUC);
-                defaultUC.Dock = DockStyle.Fill;
-                defaultUC.BringToFront();
+                panel_TrangChu.Controls.Add(uC_TrangChu);
+                uC_TrangChu.Dock = DockStyle.Fill;
+                uC_TrangChu.BringToFront();
             }
             else
             {

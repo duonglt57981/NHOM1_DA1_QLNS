@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace NHOM1_DA1_QUANLINHANSU.GUI
 {
-    public partial class QuenMatKhau : Form
+    public partial class DoiMatKhau : Form
     {
-        public QuenMatKhau()
+        public DoiMatKhau()
         {
             InitializeComponent();
         }
