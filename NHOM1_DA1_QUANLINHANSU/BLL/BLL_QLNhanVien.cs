@@ -1,4 +1,7 @@
-﻿using System;
+﻿using NHOM1_DA1_QUANLINHANSU.DAL;
+using NHOM1_DA1_QUANLINHANSU.DTO;
+using NHOM1_DA1_QUANLINHANSU.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +11,74 @@ namespace NHOM1_DA1_QUANLINHANSU.BLL
 {
     internal class BLL_QLNhanVien
     {
+        private DAL_QLNhanVien QLNV_DAL = new DAL_QLNhanVien();
+
+        public List<DTO_QLNhanVien> GetAllNhanVien()
+        {
+            return QLNV_DAL.GetAllNhanVien();
+        }
+
+        public void KiemTraTaiKhoan(int IDTK)
+        {
+            QLNV_DAL.KiemTraTaiKhoan(IDTK);
+        }
+
+        public List<Phongban> GetPhongBAN()
+        {
+            return QLNV_DAL.GetPhongBAN();
+        }
+
+        public List<Congviec> GetCongViec()
+        {
+            return QLNV_DAL.GetCongViec();
+        }
+        public List<Trinhdo> GetTrinhDo()
+        {
+            return QLNV_DAL.GetTrinhDo();
+        }
+
+        public List<Taikhoan> GetTaiKhoan()
+        {
+            return QLNV_DAL.GetTaiKhoan().ToList()
+                     .Where(nv => nv.IdvaiTro == 1 && nv.TrangThai == "Hoạt Động").ToList();
+        }
+
+        public void ThemNhanVien(Nhanvien nv)
+        {
+            if (QLNV_DAL.KiemTraTaiKhoan(nv.IdtaiKhoan))
+            {
+                var KT = MessageBox.Show("Tài Khoản này đã được đăng kí cho nhân viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (QLNV_DAL.KiemTraSDT(nv.Sdt))
+            {
+                var KT = MessageBox.Show("Số điện thoại này đã được đăng kí cho nhân viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else if (QLNV_DAL.KiemTraCCCD(nv.Cccd))
+            {
+                var KT = MessageBox.Show("CCCD này đã được đăng kí cho nhân viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                QLNV_DAL.ThemNhanVien(nv);
+            }
+        }
+
+        public void SuaNhanVien(Nhanvien NewNV)
+        {
+            QLNV_DAL.SuaNhanVien(NewNV);
+        }
+
+        public void XoaNhanVien(int idnv)
+        {
+            QLNV_DAL.XoaNhanVien(idnv);
+        }
+
+        public List<DTO_QLNhanVien> TimKiemNV(string tuKhoa)
+        {
+            return QLNV_DAL.TimKiemNV(tuKhoa);
+        }
     }
 }
