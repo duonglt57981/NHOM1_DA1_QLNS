@@ -59,5 +59,15 @@ namespace NHOM1_DA1_QUANLINHANSU.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngtree_sky_blue_gradient_background_download_image_210615 {
+            get {
+                object obj = ResourceManager.GetObject("pngtree-sky-blue-gradient-background-download-image_210615", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using NHOM1_DA1_QUANLINHANSU.GUI.UC;
+﻿using NHOM1_DA1_QUANLINHANSU.DTO;
+using NHOM1_DA1_QUANLINHANSU.GUI.UC;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,6 +42,12 @@ namespace NHOM1_DA1_QUANLINHANSU.GUI
             {
                 panel_TrangChu.Controls[0].BringToFront();
             }
+            if (Session.CurrentUser == null)
+            {
+                MessageBox.Show("Không có người dùng đăng nhập!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
         }
 
 
@@ -76,13 +83,23 @@ namespace NHOM1_DA1_QUANLINHANSU.GUI
 
         private void button_QLTaiKhoan_Click(object sender, EventArgs e)
         {
+            string vaiTro = Session.CurrentUser.IdvaiTroNavigation?.TenVaiTro ?? "";
+
+            if (vaiTro != "Quản Lí Cấp Cao")
+            {
+                MessageBox.Show("Chỉ quản lí cấp cao có quyền truy cập chức năng này!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             LoadUC(new UC.UC_QLTaiKhoan());
         }
 
 
         private void button_DangXuat_Click(object sender, EventArgs e)
         {
-
+            Login loginForm = new Login();
+            this.Hide();
+            loginForm.FormClosed += (s, args) => this.Close();
+            loginForm.ShowDialog();
         }
     }
 }
