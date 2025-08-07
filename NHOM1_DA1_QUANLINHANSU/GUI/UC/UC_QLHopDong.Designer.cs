@@ -94,6 +94,7 @@
             // dataGridView_QLHD
             // 
             dataGridView_QLHD.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView_QLHD.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView_QLHD.BackgroundColor = Color.White;
             dataGridView_QLHD.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView_QLHD.Location = new Point(0, 0);
@@ -116,6 +117,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             groupBox1.Controls.Add(textBox_QLHD_LuongCB);
             groupBox1.Controls.Add(label16);
             groupBox1.Controls.Add(label15);
@@ -409,6 +411,7 @@
             // 
             // dateTimePicker_QLHD_NgayKiHD
             // 
+            dateTimePicker_QLHD_NgayKiHD.Format = DateTimePickerFormat.Short;
             dateTimePicker_QLHD_NgayKiHD.Location = new Point(124, 193);
             dateTimePicker_QLHD_NgayKiHD.Name = "dateTimePicker_QLHD_NgayKiHD";
             dateTimePicker_QLHD_NgayKiHD.Size = new Size(125, 28);
@@ -416,6 +419,7 @@
             // 
             // dateTimePicker_QLHD_NgayKT
             // 
+            dateTimePicker_QLHD_NgayKT.Format = DateTimePickerFormat.Short;
             dateTimePicker_QLHD_NgayKT.Location = new Point(124, 143);
             dateTimePicker_QLHD_NgayKT.Name = "dateTimePicker_QLHD_NgayKT";
             dateTimePicker_QLHD_NgayKT.Size = new Size(125, 28);
@@ -423,6 +427,7 @@
             // 
             // dateTimePicker_QLHD_NgayBD
             // 
+            dateTimePicker_QLHD_NgayBD.Format = DateTimePickerFormat.Short;
             dateTimePicker_QLHD_NgayBD.Location = new Point(124, 92);
             dateTimePicker_QLHD_NgayBD.Name = "dateTimePicker_QLHD_NgayBD";
             dateTimePicker_QLHD_NgayBD.Size = new Size(125, 28);

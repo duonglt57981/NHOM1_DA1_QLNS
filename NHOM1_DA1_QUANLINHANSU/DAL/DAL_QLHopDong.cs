@@ -31,11 +31,17 @@ namespace NHOM1_DA1_QUANLINHANSU.DAL
                     HeSoLuong = x.HeSoLuong,
                     LuongCoBan = x.LuongCoBan,
                     TrangThai = x.TrangThai,
+                    Idnv = x.Idnv,
                     TenNv = x.IdnvNavigation.TenNv,
                     Sdt = x.IdnvNavigation.Sdt,
                     Cccd = x.IdnvNavigation.Cccd,
                     DiaChi = x.IdnvNavigation.DiaChi
                 }).ToList();
+        }
+
+        public bool KiemTraIDNV(int idnv)
+        {
+            return _db.Hopdongs.Any(nv => nv.Idnv == idnv);
         }
 
         public List<Loaihopdong> GetAllLoaiHopDong()
@@ -45,15 +51,7 @@ namespace NHOM1_DA1_QUANLINHANSU.DAL
 
         public List<Nhanvien> GetAllNhanVien()
         {
-            return _db.Nhanviens.ToList()
-                .Select(nv => new Nhanvien
-                {
-                    Idnv = nv.Idnv,
-                    TenNv = nv.TenNv,
-                    Sdt = nv.Sdt,
-                    Cccd = nv.Cccd,
-                    DiaChi = nv.DiaChi
-                }).ToList();
+            return _db.Nhanviens.ToList();
         }
 
         public void ThemHopDong(Hopdong hopdong)
@@ -123,6 +121,30 @@ namespace NHOM1_DA1_QUANLINHANSU.DAL
             }
         }
 
-        
+        public List<DTO_QLHopDong> TimKiem(string tk)
+        {
+            return _db.Hopdongs.Where(hd => hd.IdloaiHdNavigation.TenHopDong.Contains(tk)
+            || hd.TrangThai.Contains(tk)|| hd.Idnv.ToString().Contains(tk)).ToList()
+            .Select((x, index) => new DTO_QLHopDong
+            {
+                STT = index + 1,
+                SoHopDong = x.SoHopDong,
+                LoainHopDong = x.IdloaiHdNavigation.TenHopDong,
+                NgayBd = x.NgayBd,
+                NgayKt = x.NgayKt,
+                NgayKiHopDong = x.NgayKiHopDong,
+                LanKi = x.LanKi,
+                NoiDung = x.NoiDung,
+                ThoiHan = x.ThoiHan,
+                HeSoLuong = x.HeSoLuong,
+                LuongCoBan = x.LuongCoBan,
+                TrangThai = x.TrangThai,
+                Idnv = x.Idnv,
+                TenNv = x.IdnvNavigation.TenNv,
+                Sdt = x.IdnvNavigation.Sdt,
+                Cccd = x.IdnvNavigation.Cccd,
+                DiaChi = x.IdnvNavigation.DiaChi
+            }).ToList();
+        }
     }
 }
