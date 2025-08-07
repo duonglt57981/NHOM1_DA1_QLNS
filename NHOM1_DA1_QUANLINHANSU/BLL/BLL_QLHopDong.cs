@@ -30,5 +30,10 @@ namespace NHOM1_DA1_QUANLINHANSU.BLL
         {
             QLHD_DAL.ThemHopDong(hopdong);
         }
+
+        public void SuaHopDong(Hopdong newHD)
+        {
+            QLHD_DAL.SuaHopDong(newHD);
+        }
     }
 }
