@@ -18,11 +18,6 @@ namespace NHOM1_DA1_QUANLINHANSU.BLL
             return QLNV_DAL.GetAllNhanVien();
         }
 
-        public void KiemTraTaiKhoan(int IDTK)
-        {
-            QLNV_DAL.KiemTraTaiKhoan(IDTK);
-        }
-
         public List<Phongban> GetPhongBAN()
         {
             return QLNV_DAL.GetPhongBAN();
@@ -66,6 +61,15 @@ namespace NHOM1_DA1_QUANLINHANSU.BLL
             }
         }
 
+        public bool KiemTraIDNV(int idnv)
+        {
+             return QLNV_DAL.KiemTraIDNV(idnv);
+        }
+
+        public bool KiemTraTaiKhoan(int IDTK)
+        {
+            return QLNV_DAL.KiemTraTaiKhoan(IDTK);
+        }
         public void SuaNhanVien(Nhanvien NewNV)
         {
             QLNV_DAL.SuaNhanVien(NewNV);
@@ -73,7 +77,27 @@ namespace NHOM1_DA1_QUANLINHANSU.BLL
 
         public void XoaNhanVien(int idnv)
         {
-            QLNV_DAL.XoaNhanVien(idnv);
+            if (QLNV_DAL.KiemTraNhanVienBangHopDong(idnv))
+            {
+                MessageBox.Show("Nhân viên này đang có hợp đồng, không thể xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }else if (QLNV_DAL.KiemTraNhanVienBangChamCong(idnv))
+            {
+                MessageBox.Show("Nhân viên này đang có chấm công, không thể xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }else if(QLNV_DAL.KiemTraNhanVienBangKT_KL(idnv))
+            {
+                MessageBox.Show("Nhân viên này đang có khen thưởng kỉ luật, không thể xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }else if (QLNV_DAL.KiemTraNhanVienCoBaoHiem(idnv))
+            {
+                MessageBox.Show("Nhân viên này đang có bảo hiểm, không thể xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                QLNV_DAL.XoaNhanVien(idnv);
+            }
         }
 
         public List<DTO_QLNhanVien> TimKiemNV(string tuKhoa)

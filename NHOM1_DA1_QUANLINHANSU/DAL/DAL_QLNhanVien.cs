@@ -55,6 +55,30 @@ namespace NHOM1_DA1_QUANLINHANSU.DAL
             return _db.Nhanviens.Any(nv => nv.Cccd == cccd);
         }
 
+        public bool KiemTraIDNV(int idnv)
+        {
+            return _db.Nhanviens.Any(nv => nv.Idnv == idnv);
+        }
+
+        public bool KiemTraNhanVienBangHopDong(int idnv)
+        {
+            return _db.Hopdongs.Any(hd => hd.Idnv == idnv);
+        }
+
+        public bool KiemTraNhanVienBangKT_KL(int idnv)
+        {
+            return _db.KhenthuongKiluats.Any(kt => kt.Idnv == idnv);
+        }
+
+        public bool KiemTraNhanVienCoBaoHiem(int idnv)
+        {
+            return _db.Baohiems.Any(bh => bh.Idnv == idnv);
+        }
+
+        public bool KiemTraNhanVienBangChamCong(int idnv)
+        {
+            return _db.Chamcongs.Any(cc => cc.Idnv == idnv);
+        }
         public List<Phongban> GetPhongBAN()
         {
             return _db.Phongbans.ToList();

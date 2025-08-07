@@ -171,6 +171,7 @@ namespace NHOM1_DA1_QUANLINHANSU.GUI.UC
                 return;
             }
 
+            
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn sửa thông tin nhân viên này không?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.No)
             {
@@ -224,8 +225,23 @@ namespace NHOM1_DA1_QUANLINHANSU.GUI.UC
                 IdcongViec = (int)comboBox_QLNV_CV.SelectedValue,
                 IdtrinhDo = (int)comboBox_QLNV_TD.SelectedValue
             };
-            QLNV_BLL.SuaNhanVien(nhanvien);
-            LoadNV();
+
+
+            if (QLNV_BLL.KiemTraIDNV(nhanvien.Idnv))
+            {
+                if (QLNV_BLL.KiemTraTaiKhoan(nhanvien.IdtaiKhoan))
+                {
+   
+                    MessageBox.Show("Tài Khoản này đã được đăng kí cho nhân viên khác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                else
+                {
+                    QLNV_BLL.SuaNhanVien(nhanvien);
+                    LoadNV();
+
+                }
+            }
         }
 
         private void button_QLNV_Xoa_Click(object sender, EventArgs e)
