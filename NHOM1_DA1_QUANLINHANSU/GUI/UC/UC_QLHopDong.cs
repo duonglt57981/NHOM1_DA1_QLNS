@@ -53,7 +53,7 @@ namespace NHOM1_DA1_QUANLINHANSU.GUI.UC
             textBox_QLHD_CCCD.Text = nv.Cccd;
             textBox_QLHD_DiaChi.Text = nv.DiaChi;
         }
-        
+
         public void LoadThongTinNV()
         {
             comboBox_QLHD_IDNV.DataSource = QLHD_BLL.GetAllNhanVien();
@@ -61,7 +61,7 @@ namespace NHOM1_DA1_QUANLINHANSU.GUI.UC
             comboBox_QLHD_IDNV.DisplayMember = "Idnv";
 
             var index = QLHD_BLL.GetAllNhanVien();
-            comboBox_QLHD_IDNV.SelectedIndexChanged += new (comboBox_QLHD_IDNV_SelectedIndexChanged);
+            comboBox_QLHD_IDNV.SelectedIndexChanged += new(comboBox_QLHD_IDNV_SelectedIndexChanged);
             ThongTinNhanVien(index[0]);
         }
 
@@ -198,7 +198,7 @@ namespace NHOM1_DA1_QUANLINHANSU.GUI.UC
                     if (System.IO.File.Exists(filePath))
                     {
                         MessageBox.Show("File đã tồn tại. Vui lòng chọn tên khác hoặc xóa file cũ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return; 
+                        return;
                     }
 
                     try
@@ -282,7 +282,7 @@ namespace NHOM1_DA1_QUANLINHANSU.GUI.UC
 
         private void dataGridView_QLHD_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex > -1)
+            if (e.RowIndex > -1)
             {
                 dateTimePicker_QLHD_NgayBD.Text = dataGridView_QLHD.Rows[e.RowIndex].Cells["NgayBd"].Value.ToString();
                 dateTimePicker_QLHD_NgayKT.Text = dataGridView_QLHD.Rows[e.RowIndex].Cells["NgayKt"].Value.ToString();
