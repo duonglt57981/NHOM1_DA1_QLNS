@@ -242,6 +242,7 @@
             ForeColor = Color.Black;
             Name = "TrangChu";
             Text = "TrangChu";
+            WindowState = FormWindowState.Maximized;
             Load += TrangChu_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
