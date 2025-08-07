@@ -28,30 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
             SuspendLayout();
-            // 
-            // button1
-            // 
-            button1.Location = new Point(317, 178);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
             // 
             // UC_QLNhanVien
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button1);
             Name = "UC_QLNhanVien";
             Size = new Size(992, 587);
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Button button1;
     }
 }
