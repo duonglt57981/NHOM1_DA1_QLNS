@@ -223,6 +223,7 @@
             // 
             // panel_TrangChu
             // 
+            panel_TrangChu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel_TrangChu.Location = new Point(292, 42);
             panel_TrangChu.Name = "panel_TrangChu";
             panel_TrangChu.Size = new Size(992, 587);
