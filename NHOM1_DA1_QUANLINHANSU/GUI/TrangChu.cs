@@ -65,7 +65,7 @@ namespace NHOM1_DA1_QUANLINHANSU.GUI
 
         private void button_QLChamCong_Click(object sender, EventArgs e)
         {
-            LoadUC(new UC.UC_QLChamCong());
+            LoadUC(new UC.UC_QuanLiChamCong());
         }
 
 
